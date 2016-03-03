@@ -287,6 +287,8 @@ TOKEN :
 	|
 	< COMMA : "," >
 	|
+	< SEMICOLON : ";">
+	|
 	< EQUALS : "=" >
 	|
 	< HASH : "#" >
@@ -348,6 +350,8 @@ private BibTeXDatabase Database(boolean performErrorRecovery) :
 	(
 		try {
 			<COMMA>
+			|
+			<SEMICOLON>
 			|
 			object = Object() { database.addObject(object); }
 		} catch(TokenMgrException tme){
